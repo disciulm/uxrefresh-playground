@@ -110,105 +110,136 @@ body {
   font-family: Varela Round, sans-serif;
   font-size: 1em;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  height: 100%; }
 
-/* line 13, ../_components/sass/_layout.scss */
+/* line 14, ../_components/sass/_layout.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: Medula One, cursive;
   line-height: 1;
   margin: 10px;
   text-shadow: white 1px 1px; }
 
-/* line 20, ../_components/sass/_layout.scss */
+/* line 21, ../_components/sass/_layout.scss */
 h1 {
   color: #001f3f;
   font-size: 5rem; }
 
-/* line 25, ../_components/sass/_layout.scss */
+/* line 26, ../_components/sass/_layout.scss */
 h2 {
   color: #0074d9;
   font-size: 4rem; }
 
-/* line 30, ../_components/sass/_layout.scss */
+/* line 31, ../_components/sass/_layout.scss */
 h3 {
   color: #0d8eff;
   font-size: 3rem; }
 
-/* line 36, ../_components/sass/_layout.scss */
+/* line 37, ../_components/sass/_layout.scss */
 h4 {
   color: #40a6ff;
   font-size: 2rem; }
 
-/* line 42, ../_components/sass/_layout.scss */
+/* line 43, ../_components/sass/_layout.scss */
 h5 {
   color: #40a6ff;
   font-size: 1.5rem; }
 
-/* line 48, ../_components/sass/_layout.scss */
+/* line 49, ../_components/sass/_layout.scss */
 h6 {
   color: #40a6ff;
   font-size: 1.25rem; }
 
-/* line 54, ../_components/sass/_layout.scss */
+/* line 55, ../_components/sass/_layout.scss */
 a {
   text-decoration: underline;
-  color: #2ecc40; }
-  /* line 57, ../_components/sass/_layout.scss */
+  color: white; }
+  /* line 58, ../_components/sass/_layout.scss */
   a:hover {
     color: #ff851b; }
 
-/* line 62, ../_components/sass/_layout.scss */
+/* line 63, ../_components/sass/_layout.scss */
 header {
   background: #2ecc40;
   height: 3em;
   margin: 0; }
 
-/* line 68, ../_components/sass/_layout.scss */
-nav {
-  background-color: #dddddd; }
-  /* line 71, ../_components/sass/_layout.scss */
-  nav ul {
-    display: flex;
-    flex-flow: column nowrap;
-    align-content: center;
-    justify-content: space-around;
-    text-align: center;
-    padding: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-    @media (min-width: emCalc(640px)) {
-      /* line 71, ../_components/sass/_layout.scss */
-      nav ul {
-        flex-flow: row wrap;
-        padding: 0;
-        justify-content: flex-end;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        border-bottom: 2px solid rgba(170, 170, 170, 0.1); } }
-  /* line 91, ../_components/sass/_layout.scss */
-  nav li {
-    padding: 5px;
-    width: 200px;
-    height: 2em;
-    line-height: 1em;
-    color: white;
-    text-align: center;
-    margin: auto; }
-    @media (min-width: emCalc(640px)) {
-      /* line 91, ../_components/sass/_layout.scss */
-      nav li {
-        height: 2em;
-        line-height: 2em; } }
+/* flexbox */
+/* line 71, ../_components/sass/_layout.scss */
+.wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 3em;
+  background-color: #dddddd;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: space-around;
+  align-content: stretch;
+  justify-content: center;
+  margin: auto;
+  z-index: 100;
+  border: 1px solid red; }
 
-/* line 109, ../_components/sass/_layout.scss */
+/* line 88, ../_components/sass/_layout.scss */
+.wrapper > * {
+  padding: 10px;
+  margin: auto;
+  min-height: 75%; }
+
+/* line 94, ../_components/sass/_layout.scss */
+nav {
+  background-color: #39cccc;
+  width: 20%;
+  flex: 1 auto; }
+
+/* line 99, ../_components/sass/_layout.scss */
+section {
+  width: 20%;
+  background-color: #7fdbff;
+  flex-grow: 1;
+  flex-shrink: 3; }
+
+/* line 105, ../_components/sass/_layout.scss */
+aside {
+  width: 20%;
+  background-color: #001f3f;
+  color: white;
+  flex: 1 auto; }
+
+/* line 111, ../_components/sass/_layout.scss */
+footer {
+  width: 100%;
+  background-color: #0074d9;
+  flex: 1 auto; }
+
+/* line 117, ../_components/sass/_layout.scss */
 p {
   margin-bottom: 10px; }
 
-/* line 113, ../_components/sass/_layout.scss */
+/* pure CSS */
+/* line 124, ../_components/sass/_layout.scss */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 3em;
+  background-color: #dddddd;
+  z-index: 100; }
+  /* line 133, ../_components/sass/_layout.scss */
+  .overlay .content {
+    width: 20%;
+    height: 100%;
+    background-color: #0074d9; }
+
+/* line 151, ../_components/sass/_layout.scss */
 .small {
   font-size: .8rem;
   color: #aaaaaa; }
 
-/* line 118, ../_components/sass/_layout.scss */
+/* line 156, ../_components/sass/_layout.scss */
 ul.monsters li {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -220,7 +251,7 @@ ul.monsters li {
   -moz-box-shadow: 4px 4px 10px #cccccc;
   box-shadow: 4px 4px 10px #cccccc; }
 
-/* line 131, ../_components/sass/_layout.scss */
+/* line 169, ../_components/sass/_layout.scss */
 ul.monsters li a img {
   float: left;
   width: 100px;
@@ -229,22 +260,14 @@ ul.monsters li a img {
   -o-transition: transform 0.2 ease-in-out;
   transition: transform 0.2 ease-in-out; }
 
-/* line 139, ../_components/sass/_layout.scss */
+/* line 177, ../_components/sass/_layout.scss */
 ul.monsters li a:hover img {
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
   -o-transform: scale(1.5);
   transform: scale(1.5); }
 
-/* line 145, ../_components/sass/_layout.scss */
-a {
-  color: red; }
-
-/* line 146, ../_components/sass/_layout.scss */
-p {
-  color: red; }
-
-/* line 148, ../_components/sass/_layout.scss */
+/* line 183, ../_components/sass/_layout.scss */
 .boxes {
   -webkit-border-radius: 2em;
   border-radius: 2em;
@@ -255,7 +278,7 @@ p {
   text-align: center;
   padding: 10px; }
 
-/* line 161, ../_components/sass/_layout.scss */
+/* line 196, ../_components/sass/_layout.scss */
 .Rounded_Rectangle_1 {
   border-radius: 10px;
   background-image: -moz-linear-gradient(90deg, #2989cc 0%, white 50%, #c8b580 50%, #906a00 52%, #d99f00 64%, white 100%);
