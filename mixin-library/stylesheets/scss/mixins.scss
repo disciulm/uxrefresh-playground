@@ -1,0 +1,249 @@
+// CONVERT px TO rem
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// Example Usage:
+
+p {
+  @include font-size(14px)
+}
+
+
+
+// BREAKPOINTS BASIC
+
+// @mixin bp-large {
+//   @media only screen and (max-width: 60em) {
+//     @content;
+//   }
+// }
+
+// @mixin bp-medium {
+//   @media only screen and (max-width: 40em) {
+//     @content;
+//   }
+// }
+//
+// @mixin bp-small {
+//   @media only screen and (max-width: 30em) {
+//     @content;
+//   }
+// }
+
+// Example Usage:
+
+//.sidebar {
+//  width: 60%
+//  float: left;
+//  margin: 0 2% 0 0;
+//  @include bp-small {
+//    width: 100%;
+//    float: none;
+//    margin: 0;
+//  }
+//}
+
+
+
+// BREAKPOINTS VARIABLE
+
+@mixin breakpoint($break) {
+@if $break == large {
+@media (max-width: 1420px) { @content; }
+}
+@else if $break == medium {
+@media (max-width: 1200px) { @content; }
+}
+@else if $break == small {
+@media (max-width: 760px) { @content; }
+} @else {
+@media ($break) { @content; }
+}
+}
+
+
+// Example Usage:
+
+body {
+background: pink;
+@include breakpoint(large) { background: red; }
+@include breakpoint(medium) { background: cyan; }
+@include breakpoint(small) { background: green; }
+//@include breakpoint(“max-width: 480px”) { background: yellow; }
+}
+
+// Example Usage:
+
+.sidebar {
+  width: 60%;
+  float: left;
+  margin: 0 2% 0 0;
+  @include breakpoint(small) {
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+}
+
+
+// PNG Fallbacks
+
+$image-path: '../../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+// Example Usage:
+
+//body {
+//  @include background-image('pattern');
+//}
+
+// EXTRA STYLIN'
+.wrap {
+  width: 500px;
+  height: 500px;
+  border: 2px solid;
+  @include background-image('pattern');
+}
+
+
+
+// ANIMATIONS
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+
+// Example Usage:
+
+@include keyframes(slide-down) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+
+.element {
+  width: 100px;
+  height: 100px;
+  background: black;
+  @include animation('slide-down 5s 3');
+}
+
+
+
+// TRANSITIONS
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Example Usage:
+
+a {
+  color: gray;
+  @include transition(color .3s ease);
+  &:hover {
+    color: black;
+  }
+}
+
+
+// CROSS BROWSER OPACITY
+// This mixin ensures cross browser opacity all the way down to Internet Explorer 5.
+// Though if you have to optomize for IE5, you have a lot bigger problems than opacity, godspeed my friend
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+// Clearfix
+// Works in IE6 and up
+
+%clearfix {
+  *zoom: 1;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+// Example Usage:
+
+.container-with-floated-children {
+  @extend %clearfix;
+}
+
+
+// Visually hide an element
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// Example Usage: (See HTML file)
+
+.visually-hidden {
+  @extend %visuallyhidden;
+}
+

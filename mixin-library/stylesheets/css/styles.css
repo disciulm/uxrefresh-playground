@@ -1,0 +1,25 @@
+h1 {
+  font-family: 'Love Ya Like A Sister', cursive; }
+
+body {
+  font-family: 'Spinnaker', sans-serif;
+  font-size: 20px;
+  margin: 0; }
+
+nav {
+  background: #000;
+  height: 75px;
+  width: 100%;
+  margin: 0;
+  padding: 5px; }
+
+section {
+  float: left;
+  margin: 25px;
+  paddding: 10px;
+  width: 100%; }
+
+aside {
+  float: right;
+  width: 35%;
+  padding: 5px; }
