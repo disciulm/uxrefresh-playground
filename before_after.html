@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<link rel="stylesheet" href="/stylesheets/css/fonts.css">
+
+<style>
+
+a {
+  text-decoration: none;
+}
+
+a[href^="https:"] {
+   color: #ffffff;
+}
+
+[href$=".pdf"]:before {
+  font-family: 'icons_refresh';
+   content: 'A';
+   text-decoration: none;
+   padding-right: .5em;
+}
+
+[rel="external"]:after {
+  font-family: 'icons_refresh';
+   content: 'a';
+   text-decoration: none;
+   padding-left: .5em;
+}
+
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Before After</title>
+</head>
+<body>
+  <h1>Hello!</h1>
+    <p>Just trying some new stuff.</p>
+    <p>Anything.</p>
+    <p>Anything at all.</p>
+    <p><a href="https://blah.uxrefresh.com">Link to this</a></p>
+    <p><a href="http://www.uxrefresh.com/go.pdf">Download PDF (10MB)</a></p>
+    <p><a href="http://www.uxrefresh.com" rel="external">This will take you to far away places.</a></p>
+
+<div class="fs1" aria-hidden="true" data-icon="A"></div>
+
+</body>
+</html>

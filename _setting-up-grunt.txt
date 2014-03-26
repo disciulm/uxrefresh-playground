@@ -1,0 +1,82 @@
+1) Create a package.json file in the root of your project
+
+Example: 
+
+{
+  "name" : "uxrefresh",
+  "version" : "0.0.1",
+  "description" : "a website for UX Refresh",
+  "author" : "Mark Di Sciullo",
+  "dependencies" : {
+    "grunt" : "~0.4.1",
+    "grunt-contrib-watch" : "~0.5.3",
+    "grunt-contrib-compass" : "~0.5.0",
+    "grunt-contrib-uglify" : "~0.2.2",
+    "matchdep" : "~0.1.2"
+  }
+}
+
+
+2) Type npm install
+
+
+3) sudo npm install -g grunt-cli
+
+4) create gruntfile.js in your root directory
+module.exports = function(grunt) {
+
+
+Example:
+
+grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.initConfig({
+    uglify: {
+      my_target: {
+        files: {
+          'js/script.js' : ['components/js/scripts.js'] // can use '*' wildcards
+        } //files
+      } //my_target
+
+    } //uglify
+  }) //initConfig
+
+} //exports
+
+
+5) Run grunt uglify to confirm directory paths
+
+
+6) add “watch: {}” object to script and indicate which files and tasks you want to watch and run
+
+    watch: {
+          files: ['components/js/scripts.js'], // can use '*' wildcards
+          tasks: ['uglify']
+        } 
+
+7) register “watch” as the default grunt task
+
+     grunt.registerTask('default', 'watch');
+
+8) add liveReload option
+	          options: { livereload: true },
+          scripts: {
+		}
+
+9) add the scripts from the lines above so the watch object looks like this…
+
+    watch: {
+          options: { livereload: true },
+          scripts: {
+            files:   ['components/js/scripts.js'], // can use '*' wildcards
+            tasks:   ['uglify']
+          }
+        } //watch
+
+—————————————————————————————
+
+// For a more detailed overview, checkout:
+// Grunt for People Who Think Things Like Grunt are Weird and Hard - Chris Coyier
+// http://24ways.org/2013/grunt-is-not-weird-and-hard/
+
+
+scrolling is a continuation; clicking is a decision
