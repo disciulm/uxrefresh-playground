@@ -7,7 +7,7 @@ grunt.loadNpmTasks('grunt-contrib-compass');
     uglify: {
       my_target: {
         files: {
-          'js/scripts.js' : ['_components/js/scripts.js'] // can use '*' wildcards
+          'js/scripts.js' : ['_components/js/*.js'] // can use '*' wildcards
         } //files
       } //my_target
     }, //uglify
@@ -21,7 +21,7 @@ grunt.loadNpmTasks('grunt-contrib-compass');
     watch: {
           options: { livereload: true },
           scripts: {
-            files:   ['_components/js/scripts.js'], // can use '*' wildcards
+            files:   ['_components/js/*.js'], // can use '*' wildcards
             tasks:   ['uglify']
           }, // scripts
           sass: {
@@ -29,7 +29,7 @@ grunt.loadNpmTasks('grunt-contrib-compass');
             tasks: ['compass:dev']
           }, //sass
           html: {
-            files: ['*.html']
+            files: ['*.html', '_pages/*.html']
           }
         } //watch
   }) //initConfig
