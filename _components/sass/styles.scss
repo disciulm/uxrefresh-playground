@@ -2,11 +2,14 @@
 @import "compass/reset";
 @import "compass/layout";
 @import "compass/utilities";
+//@import "bourbon/bourbon";
+@import "normalize";
 @import "colors";
 @import "variables";
 @import "mixins";
 @import "fonts";
 @import "layout";
 @import "flexbox-page";
+@import "component";
 @import "modules";
 @modules "modules";

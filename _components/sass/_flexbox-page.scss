@@ -1,41 +1,41 @@
 .flex-more {
   display: -webkit-flex;
   display: flex;
-  border: 1px dotted red;
-  margin: 1em 0;
-  width: 350px;
-  flex-flow: row nowrap;
+  border: 1px dotted $green;
+  margin: 1em 2em;
+  width: 40%;
+  height: 600px;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-more>* {
+  border-radius: 3px;
+  margin: 0.2em;
+    p {
+      color: $white;
+      margin: 1em;
+  }
+  background-color: $maroon;
 }
 
 .more-flex01 {
   webkit-flex: 2;
   flex: 2;
   background-color: $blue;
-  p {
-  color: $white;
-  margin: 1em;
-  }
-
 }
 
 .more-flex02 {
   webkit-flex: 6;
   flex: 6;
   background-color: $teal;
-  p {
-  color: $white;
-  margin: 1em;
-  }
 }
 
 .more-flex03 {
  -webkit-flex: 4;
  flex: 4;
+ margin-left: auto;
  background-color: $orange;
- p {
- color: $white;
- margin: 1em;
- }
 
 }
 
